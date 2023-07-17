@@ -1,0 +1,30 @@
+
+<html>
+<head>
+  <title>Item Form</title>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Item Form</h2>
+    <form [formGroup]="addItemsForm">
+      <div class="form-group">
+        <label for="item_name">Item Name</label>
+        <input type="text" id="item_name" name="item_name" formControlName="Name" placeholder="Enter item name" required>
+      </div>
+      <div class="form-group">
+        <label for="item_specification">Item Specification</label>
+        <input type="text" id="item_specification" name="item_specification" formControlName="Specification" placeholder="Enter item specification" required>
+      </div>
+      <div class="form-group">
+        <label for="item_make">Item Make</label>
+        <input type="text" id="item_make" name="item_make" formControlName="Make" placeholder="Enter item make" required>
+      </div>
+      <div class="form-group">
+        <label for="unit">Unit</label>
+        <input type="text" id="unit" name="unit" formControlName="Unit" placeholder="Enter unit" required>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</body>
+</html>
