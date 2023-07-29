@@ -91,3 +91,14 @@
   display: flex;
   margin-bottom: 0%;
 }
+.card {
+  background-color: #f0f0f0; /* Grey background color for the card */
+  margin-left: -10px;
+  margin-bottom: -10px;
+  margin-right: 20px;
+  display: flex;
+  font-size: medium;
+  font-weight: 200;
+}
+
+/* Custom styles for the card content */
