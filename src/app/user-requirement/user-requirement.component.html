@@ -2,45 +2,44 @@
 <html>
 <head>
   <title>Requirement Form</title>
-
 </head>
 <body>
   <div class="form-container">
     <h2>Requirement Form</h2>
     <form [formGroup]="nestedForm" (ngSubmit)="onSubmit()">
-      <!-- Outer Field -->
-      <div class="row header">
-        <div class="cell">Site ID</div>
-        <div class="cell">Item ID</div>
-        <div class="cell">Requirement Quantity</div>
-        <div class="cell">Requirement Delivery Date</div>
-        <div class="cell">Action</div>
-      </div>
-  
-      <!-- Inner Fields -->
+     
+      <!-- FormArray - Inner Fields -->
       <div formArrayName="innerFields">
-        <div *ngFor="let innerField of innerFields.controls; let i = index" [formGroupName]="i">
-          <div class="inner-field-row">
-            <select formControlName="innerField1" id="innerField1" placeholder="Site ID">
-              <option value="">Select Site ID</option>
-              <!-- <option *ngFor="let site of siteOptions" [value]="site.id">{{ site.name }}</option> -->
-            </select>
-            <select formControlName="innerField2" id="innerField2" placeholder="Item ID">
-              <option value="">Select Item ID</option>
-              <!-- <option *ngFor="let item of itemOptions" [value]="item.id">{{ item.name }}</option> -->
-            </select>
-            <input type="text" formControlName="innerField3" id="innerField3" placeholder="Requirement Quantity">
-            <input type="text" formControlName="innerField4" id="innerField4" placeholder="Requirement Delivery Date">
+        <div *ngFor="let innerField of innerFields.controls; let i = index">
+          <div class="inner-field-row" [formGroupName]="i">
+            
+              <input matInput type="text" formControlName="innerField1" placeholder="Site ID" [matAutocomplete]="autoSite">
+              <mat-autocomplete #autoSite="matAutocomplete">
+                <mat-option *ngFor="let site of siteOptions" [value]="site.id">
+                  {{ site.name }}
+                </mat-option>
+              </mat-autocomplete>
+           
+
+         
+              <input matInput type="text" formControlName="innerField2" placeholder="Item ID" [matAutocomplete]="autoItem">
+              <mat-autocomplete #autoItem="matAutocomplete">
+                <mat-option *ngFor="let item of itemOptions" [value]="item.id">
+                  {{ item.name }}
+                </mat-option>
+              </mat-autocomplete>
+           
+
+            <input type="text" formControlName="innerField3" placeholder="Requirement Quantity" />
+            <input type="text" formControlName="innerField4" placeholder="Requirement Delivery Date" />
             <button type="button" (click)="removeNestedFormGroup(i)">Remove</button>
           </div>
         </div>
       </div>
-  
+
       <button type="button" (click)="addNestedFormGroup()">Add Nested Form Group</button>
       <button type="submit">Submit</button>
     </form>
   </div>
-  
-
 </body>
 </html>
