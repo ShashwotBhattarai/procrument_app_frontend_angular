@@ -19,8 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AdminInquiryCompareComponent,
     UserDashboardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule,FormsModule,HttpClientModule, BrowserAnimationsModule,MatAutocompleteModule,MatInputModule,MatFormFieldModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatIconModule,
+  ],
   providers: [],
   bootstrap: [AppComponent, LoginComponent],
 })

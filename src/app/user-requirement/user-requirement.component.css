@@ -1,10 +1,5 @@
 
 
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
 
   .form-container {
     max-width: 1800px;
@@ -23,21 +18,6 @@
     margin-top: 20px;
   }
 
-  .row.header {
-    background-color: #e8e8e8;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    font-weight: bold;
-    border-bottom: 1px solid #ccc;
-  }
-
-  .cell {
-    flex-basis: 20%;
-    padding: 10px;
-  }
-
   .inner-field-row {
     display: flex;
     align-items: center;
@@ -45,14 +25,7 @@
     margin-bottom: 10px;
   }
 
-  .inner-field-row input[type="text"] {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-  }
-
+ 
   .inner-field-row button[type="button"] {
     padding: 8px 16px;
     border: none;
@@ -62,6 +35,7 @@
     color: #fff;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-bottom: 0.6%;
   }
 
   .inner-field-row button[type="button"]:hover {
@@ -86,13 +60,34 @@
     background-color: #45a049;
   }
 
-  .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+  button[type="submit"] {
+    display: block; /* Display the button on a new line */
+    width: 50%; /* Make the button occupy the full container width */
+    margin-top: 10px; /* Add some margin at the top for spacing */
+    padding: 10px 20px; /* Increase the padding to make the button bigger */
+    font-size: 18px; /* Increase the font size for bigger text */
+    background-color: #007bff; /* Set the background color to blue (you can change this to your preferred color) */
+    color: #fff; /* Set the text color to white */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add some border radius for rounded corners */
+    cursor: pointer;
+    
   }
   
-  .example-full-width {
-    width: 100%;
+  /* Style the button on hover to give a visual feedback */
+  button[type="submit"]:hover {
+    background-color: #0056b3; /* Change the background color on hover */
   }
-  
+
+  .submit-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Add some margin at the top for spacing */
+}
+
+.index{
+  font-size: 20px;
+  font-weight:400;
+  display: flex;
+  margin-bottom: 0%;
+}

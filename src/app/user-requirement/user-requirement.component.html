@@ -1,45 +1,89 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Requirement Form</title>
-</head>
-<body>
-  <div class="form-container">
-    <h2>Requirement Form</h2>
-    <form [formGroup]="nestedForm" (ngSubmit)="onSubmit()">
-     
-      <!-- FormArray - Inner Fields -->
-      <div formArrayName="innerFields">
-        <div *ngFor="let innerField of innerFields.controls; let i = index">
-          <div class="inner-field-row" [formGroupName]="i">
-            
-              <input matInput type="text" formControlName="innerField1" placeholder="Site ID" [matAutocomplete]="autoSite">
-              <mat-autocomplete #autoSite="matAutocomplete">
-                <mat-option *ngFor="let site of siteOptions" [value]="site.id">
-                  {{ site.name }}
-                </mat-option>
-              </mat-autocomplete>
-           
+  <head>
+    <title>Requirement Form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Requirement Form</h2>
+      <form [formGroup]="nestedForm" (ngSubmit)="onSubmit()">
+        <!-- FormArray - Inner Fields -->
+        <div formArrayName="innerFields">
+          <div *ngFor="let innerField of innerFields.controls; let i = index">
+            <div class="inner-field-row" [formGroupName]="i">
+              <div class="index">{{(i+1)+"."}}</div>
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  formControlName="innerField1"
+                  placeholder="Site ID"
+                  [matAutocomplete]="autoSite"
+                />
+                <mat-autocomplete #autoSite="matAutocomplete">
+                  <mat-option
+                    *ngFor="let site of siteOptions"
+                    [value]="site.id"
+                  >
+                    {{ site.name }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
 
-         
-              <input matInput type="text" formControlName="innerField2" placeholder="Item ID" [matAutocomplete]="autoItem">
-              <mat-autocomplete #autoItem="matAutocomplete">
-                <mat-option *ngFor="let item of itemOptions" [value]="item.id">
-                  {{ item.name }}
-                </mat-option>
-              </mat-autocomplete>
-           
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  formControlName="innerField2"
+                  placeholder="Item ID"
+                  [matAutocomplete]="autoItem"
+                />
+                <mat-autocomplete #autoItem="matAutocomplete">
+                  <mat-option
+                    *ngFor="let item of itemOptions"
+                    [value]="item.id"
+                  >
+                    {{ item.name }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
 
-            <input type="text" formControlName="innerField3" placeholder="Requirement Quantity" />
-            <input type="text" formControlName="innerField4" placeholder="Requirement Delivery Date" />
-            <button type="button" (click)="removeNestedFormGroup(i)">Remove</button>
+             
+              <mat-form-field >
+                <input matInput #number formControlName="innerField3" placeholder="30 nos" />
+              </mat-form-field>
+
+              <!-- Angular Material Datepicker -->
+
+              <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input
+                  matInput
+                  [matDatepicker]="picker"
+                  formControlName="innerField4"
+                />
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle
+                  matIconSuffix
+                  [for]="picker"
+                ></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+
+              <button mat-raised-button color="warn" type="button" (click)="removeNestedFormGroup(i)">
+                Remove
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <button type="button" (click)="addNestedFormGroup()">Add Nested Form Group</button>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
-</body>
+        <button type="button" (click)="addNestedFormGroup()">
+          Add Nested Form Group
+        </button>
+        <div class="submit-button-wrapper">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>

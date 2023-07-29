@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-user-requirement',
   templateUrl: './user-requirement.component.html',
@@ -58,14 +59,12 @@ export class UserRequirementComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.nestedForm.valid) {
-    
+    if (1) {
       // Handle form submission
       console.log("inside on submit");
       const formData = this.nestedForm.value;
       console.log(formData);
       // You can perform further actions, like sending the data to the server.
-    
+    }
   }
-}
 }
