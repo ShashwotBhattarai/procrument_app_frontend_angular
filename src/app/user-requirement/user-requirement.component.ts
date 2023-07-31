@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GetAllSitesService } from '../services/get-all-sites.service';
 
 
 @Component({
@@ -8,24 +9,30 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./user-requirement.component.css'],
 })
 export class UserRequirementComponent implements OnInit {
-  nestedForm!: FormGroup;
 
+
+  constructor(private formBuilder: FormBuilder,private getAllSiteService:GetAllSitesService) {}
+  nestedForm!: FormGroup;
+  
+ 
   // Sample data for autocomplete options
-  siteOptions = [
-    { id: 1, name: 'Site 1' },
-    { id: 2, name: 'Site 2' },
-    { id: 3, name: 'Site 3' },
-  ];
+  siteOptions:any;
 
   itemOptions = [
     { id: 1, name: 'Item A' },
     { id: 2, name: 'Item B' },
     { id: 3, name: 'Item C' },
   ];
-
-  constructor(private formBuilder: FormBuilder) {}
-
+  async callService(){
+    let fetchedSiteOptions= await this.getAllSiteService.getAllSites();
+    this.siteOptions=fetchedSiteOptions;
+    console.log(fetchedSiteOptions);
+  }
+  
   ngOnInit(): void {
+
+    this.callService();
+  
     this.nestedForm = this.formBuilder.group({
       innerFields: this.formBuilder.array([]) // FormArray for dynamically generated form groups
     });
@@ -67,4 +74,6 @@ export class UserRequirementComponent implements OnInit {
       // You can perform further actions, like sending the data to the server.
     }
   }
+
+  
 }
