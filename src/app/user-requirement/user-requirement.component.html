@@ -44,6 +44,9 @@
                     [value]="item.id"
                   >
                     {{ item.name }}
+                    {{item.spec}}
+                    {{item.make}}
+                    {{"Unit:"+item.unit}}
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
@@ -52,10 +55,6 @@
               <mat-form-field >
                 <input matInput #number formControlName="innerField3" placeholder="30 nos" />
               </mat-form-field>
-
-              <div class="card">
-                 Dozen
-              </div>
           
 
               <mat-form-field>
