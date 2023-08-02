@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root',
@@ -32,7 +32,6 @@ export class GetAllSitesAndItemsService {
     try {
       const url = 'http://localhost:3000/items';
       response = await this.http.get(url).toPromise();
-      console.log(response);
       itemOptions = response.map((item: { id: any; item_name: any; item_specification:any; item_make:any; item_unit:any }) => ({
         id: item.id,
         name: item.item_name,
@@ -40,7 +39,7 @@ export class GetAllSitesAndItemsService {
         make:item.item_make,
         unit:item.item_unit,
       }));
-      console.log(itemOptions);
+      
     } catch (error) {
       console.error(error);
     }

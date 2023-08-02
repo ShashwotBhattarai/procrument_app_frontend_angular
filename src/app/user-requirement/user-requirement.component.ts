@@ -1,6 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GetAllSitesAndItemsService } from '../services/get-all-sites.service';
+import { PostRequirementService } from '../services/post-requirement.service';
+import { RequirementDto } from '../dto\'s/requirement.dto';
 
 @Component({
   selector: 'app-user-requirement',
@@ -10,21 +12,21 @@ import { GetAllSitesAndItemsService } from '../services/get-all-sites.service';
 export class UserRequirementComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private getAllSitesAndItemsService: GetAllSitesAndItemsService
+    private getAllSitesAndItemsService: GetAllSitesAndItemsService,
+    private postRequirements: PostRequirementService
   ) {}
   nestedForm!: FormGroup;
-
-  // Sample data for autocomplete options
   siteOptions: any;
+  itemOptions: any;
 
-  itemOptions:any;
   async callFetchService() {
-    let fetchedSiteOptions = await this.getAllSitesAndItemsService.getAllSites();
+    let fetchedSiteOptions =
+      await this.getAllSitesAndItemsService.getAllSites();
     this.siteOptions = fetchedSiteOptions;
-    console.log(fetchedSiteOptions);
-      let fetchedItemsOptions= await this.getAllSitesAndItemsService.getAllItems();
-      this.itemOptions=fetchedItemsOptions;
-      console.log(fetchedItemsOptions);
+
+    let fetchedItemsOptions =
+      await this.getAllSitesAndItemsService.getAllItems();
+    this.itemOptions = fetchedItemsOptions;
   }
 
   ngOnInit(): void {
@@ -64,11 +66,22 @@ export class UserRequirementComponent implements OnInit {
 
   onSubmit(): void {
     if (1) {
-      // Handle form submission
       console.log('inside on submit');
       const formData = this.nestedForm.value;
-      console.log(formData);
-      // You can perform further actions, like sending the data to the server.
+      const requirementArray:[]= formData.innerFields;
+      console.log(requirementArray);
+      const payloadArray= this.mapToRequirementDto(requirementArray);
+      this.postRequirements.postRequirement(payloadArray);
+
     }
+  }
+
+   mapToRequirementDto(inputArray: any[]): RequirementDto[] {
+    return inputArray.map((item) => ({
+      site_id: item.innerField1,
+      item_id: item.innerField2,
+      requirement_quantity: parseInt(item.innerField3, 10),
+      requirement_delivery_date: item.innerField4, 
+    }));
   }
 }
