@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GetAllSitesAndItemsService } from '../services/get-all-sites.service';
-import { PostRequirementService } from '../services/post-requirement.service';
-import { RequirementDto } from "../dto's/requirement.dto";
+import { GetAllSitesAndItemsService } from '../../services/get-all-sites.service';
+import { PostRequirementService } from '../../services/post-requirement.service';
+import { RequirementDto } from "../../dto's/requirement.dto";
 import { Router } from '@angular/router';
 
 

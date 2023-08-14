@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PostCredentialService } from '../services/admin-addnewCredential.service';
+import { PostCredentialService } from 'src/app/services/admin-addnewCredential.service';
+
 
 @Component({
   selector: 'app-admin-credentials',
