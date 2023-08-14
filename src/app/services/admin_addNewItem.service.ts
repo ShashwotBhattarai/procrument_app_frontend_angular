@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RequirementDto } from '../dto\'s/requirement.dto';
+import { ItemsDto } from '../dto\'s/items.dto';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PostRequirementService {
+export class PostItemService {
   constructor(private http: HttpClient) {}
 
-  async postRequirement(requirement: RequirementDto[]): Promise<boolean> {
+  async postItem(item:any): Promise<boolean> {
     let status:boolean=false;
 
     try {
-      const url = 'http://localhost:3000/requirement'; // Replace with your API endpoint
-
-      const response = await this.http.post(url, requirement).toPromise();
+      const url = 'http://localhost:3000/items'; 
+      const response = await this.http.post(url, item).toPromise();
       console.log(response);
         status=true;
 

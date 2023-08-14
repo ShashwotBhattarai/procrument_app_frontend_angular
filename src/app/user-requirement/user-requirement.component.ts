@@ -2,7 +2,10 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GetAllSitesAndItemsService } from '../services/get-all-sites.service';
 import { PostRequirementService } from '../services/post-requirement.service';
-import { RequirementDto } from '../dto\'s/requirement.dto';
+import { RequirementDto } from "../dto's/requirement.dto";
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-user-requirement',
@@ -13,7 +16,9 @@ export class UserRequirementComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private getAllSitesAndItemsService: GetAllSitesAndItemsService,
-    private postRequirements: PostRequirementService
+    private postRequirements: PostRequirementService,
+    private router:Router
+    
   ) {}
   nestedForm!: FormGroup;
   siteOptions: any;
@@ -64,24 +69,27 @@ export class UserRequirementComponent implements OnInit {
     this.nestedForm.updateValueAndValidity();
   }
 
-  onSubmit(): void {
-    if (1) {
-      console.log('inside on submit');
+ async onSubmit(){
+   
       const formData = this.nestedForm.value;
-      const requirementArray:[]= formData.innerFields;
+      const requirementArray: [] = formData.innerFields;
       console.log(requirementArray);
-      const payloadArray= this.mapToRequirementDto(requirementArray);
-      this.postRequirements.postRequirement(payloadArray);
-
-    }
+      const payloadArray = this.mapToRequirementDto(requirementArray);
+    const response= await this.postRequirements.postRequirement(
+        payloadArray
+      );
+      if(response==true){
+        this.router.navigate(['user/dashboard']); 
+      }
+     
   }
 
-   mapToRequirementDto(inputArray: any[]): RequirementDto[] {
+  mapToRequirementDto(inputArray: any[]): RequirementDto[] {
     return inputArray.map((item) => ({
       site_id: item.innerField1,
       item_id: item.innerField2,
       requirement_quantity: parseInt(item.innerField3, 10),
-      requirement_delivery_date: item.innerField4, 
+      requirement_delivery_date: item.innerField4,
     }));
   }
 }
