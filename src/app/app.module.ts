@@ -26,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminRequirementsSendInquirySelectSuppliersComponent,
     AdminInquiryCompareComponent,
     UserDashboardComponent,
+
   ],
   imports: [
     BrowserModule,

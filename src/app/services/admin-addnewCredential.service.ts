@@ -4,15 +4,15 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class PostItemService {
+export class PostCredentialService {
   constructor(private http: HttpClient) {}
 
-  async postItem(item:any): Promise<boolean> {
+  async postCredential(credential:any): Promise<boolean> {
     let status:boolean=false;
 
     try {
-      const url = 'http://localhost:3000/items'; 
-      const response = await this.http.post(url, item).toPromise();
+      const url = 'http://localhost:3000/credentials'; 
+      const response = await this.http.post(url, credential).toPromise();
       console.log(response);
         status=true;
 
