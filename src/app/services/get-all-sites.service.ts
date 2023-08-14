@@ -25,6 +25,7 @@ export class GetAllSitesAndItemsService {
 
     return siteOptions;
   }
+  
   async getAllItems(): Promise<any> {
     let response: any;
     let itemOptions: any;
@@ -45,5 +46,19 @@ export class GetAllSitesAndItemsService {
     }
 
     return itemOptions;
+  }
+  async getAllUsers(): Promise<any> {
+    let response: any;
+    let userOptions: any;
+
+    try {
+      const url = 'http://localhost:3000/credentials';
+      response = await this.http.get(url).toPromise();
+      
+    } catch (error) {
+      console.error(error);
+    }
+
+    return response;
   }
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Edit Site Form</title>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Edit Site Form</h2>
+    <form [formGroup]="editSiteForm" (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <input
+              matInput
+              type="text"
+              formControlName="site_id"
+              placeholder="Site ID"
+              [matAutocomplete]="autoSite"
+            />
+            <mat-autocomplete #autoSite="matAutocomplete">
+              <mat-option
+                *ngFor="let site of siteOptions"
+                [value]="site.id"
+              >
+                {{ site.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+      <mat-form-field>
+        <mat-label>Edit Site Name</mat-label>
+        <input matInput formControlName="site_name" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Edit Site Location</mat-label>
+        <input matInput formControlName="site_location" />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Edit Site Manager Name</mat-label>
+        <input matInput formControlName="site_manager_name" />
+      </mat-form-field>
+      <button type="submit" [disabled]="editSiteForm.invalid">Submit</button>
+    </form>
+  </div>
+</body>
+</html>

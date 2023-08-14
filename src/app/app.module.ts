@@ -25,6 +25,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AdminEditItemsComponent } from './Admin/admin-edit-items/admin-edit-items.component';
+import { AdminDeleteItemComponent } from './Admin/admin-delete-item/admin-delete-item.component';
+import { AdminEditSiteComponent } from './Admin/admin-edit-site/admin-edit-site.component';
+import { AdminEditCredentialsComponent } from './Admin/admin-edit-credentials/admin-edit-credentials.component';
 
 
 
@@ -44,6 +47,9 @@ import { AdminEditItemsComponent } from './Admin/admin-edit-items/admin-edit-ite
     AdminInquiryCompareComponent,
     UserDashboardComponent,
     AdminEditItemsComponent,
+    AdminDeleteItemComponent,
+    AdminEditSiteComponent,
+    AdminEditCredentialsComponent,
 
   ],
   imports: [

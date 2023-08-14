@@ -9,6 +9,9 @@ import { AdminItemsComponent } from './Admin/admin-items/admin-addItems.componen
 import { AdminSiteComponent } from './Admin/admin-site/admin-site.component';
 import { AdminCredentialsComponent } from './Admin/admin-credentials/admin-credentials.component';
 import { AdminEditItemsComponent } from './Admin/admin-edit-items/admin-edit-items.component';
+import { AdminDeleteItemComponent } from './Admin/admin-delete-item/admin-delete-item.component';
+import { AdminEditSiteComponent } from './Admin/admin-edit-site/admin-edit-site.component';
+import { AdminEditCredentialsComponent } from './Admin/admin-edit-credentials/admin-edit-credentials.component';
 
 
 const routes: Routes = [
@@ -20,6 +23,10 @@ const routes: Routes = [
   { path: 'admin/site', component: AdminSiteComponent},
   { path: 'admin/credentials', component: AdminCredentialsComponent},
   { path: 'admin/editItems', component: AdminEditItemsComponent},
+  { path: 'admin/deleteItems', component: AdminDeleteItemComponent},
+  { path: 'admin/editSite', component: AdminEditSiteComponent},
+  { path: 'admin/editUser', component: AdminEditCredentialsComponent},
+
 
 ];
 

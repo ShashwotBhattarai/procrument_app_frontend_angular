@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Delete Item Form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Delete Items Form</h2>
+      <form [formGroup]="deleteItemsForm" (ngSubmit)="onSubmit()">
+        <mat-form-field >
+          <input
+            matInput
+            type="text"
+            formControlName="item_id"
+            placeholder="Item ID"
+            [matAutocomplete]="autoItem"
+          />
+          <mat-autocomplete #autoItem="matAutocomplete">
+            <mat-option *ngFor="let item of itemOptions" [value]="item.id">
+              {{ item.name }}
+              {{ item.spec }}
+              {{ item.make }}
+              {{ "Unit:" + item.unit }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button type="submit" [disabled]="deleteItemsForm.invalid">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
