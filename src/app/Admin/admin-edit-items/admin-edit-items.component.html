@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Edit Item Form</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Edit Items Form</h2>
+      <form [formGroup]="editItemsForm" (ngSubmit)="onSubmit()">
+        <mat-form-field >
+          <input
+            matInput
+            type="text"
+            formControlName="item_id"
+            placeholder="Item ID"
+            [matAutocomplete]="autoItem"
+          />
+          <mat-autocomplete #autoItem="matAutocomplete">
+            <mat-option *ngFor="let item of itemOptions" [value]="item.id">
+              {{ item.name }}
+              {{ item.spec }}
+              {{ item.make }}
+              {{ "Unit:" + item.unit }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> Edit Item Name</mat-label>
+            <input matInput formControlName="item_name"/>
+          </mat-form-field>
+        <mat-form-field>
+          <mat-label> Edit Item Specification</mat-label>
+          <input matInput formControlName="item_specification" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Edit Make</mat-label>
+          <input matInput formControlName="item_make" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Edit Item Unit</mat-label>
+          <input matInput formControlName="item_unit" />
+        </mat-form-field>
+        <button type="submit" [disabled]="editItemsForm.invalid">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>

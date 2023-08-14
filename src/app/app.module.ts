@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
-import { AdminItemsComponent } from './Admin/admin-items/admin-items.component';
+import { AdminItemsComponent } from './Admin/admin-items/admin-addItems.component';
 import { AdminSupplierComponent } from './Admin/admin-supplier/admin-supplier.component';
 import { AdminSiteComponent } from './Admin/admin-site/admin-site.component';
 import { AdminCredentialsComponent } from './Admin/admin-credentials/admin-credentials.component';
@@ -24,6 +24,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AdminEditItemsComponent } from './Admin/admin-edit-items/admin-edit-items.component';
 
 
 
@@ -42,6 +43,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminRequirementsSendInquirySelectSuppliersComponent,
     AdminInquiryCompareComponent,
     UserDashboardComponent,
+    AdminEditItemsComponent,
 
   ],
   imports: [
