@@ -11,7 +11,6 @@ export class UserDashboardComponent {
   constructor(private router: Router){}
 
   requirementButtonClick(): void {
-    console.log('Button clicked!');
     this.router.navigate(['user/requirement']);
   }
 

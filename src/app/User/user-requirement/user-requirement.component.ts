@@ -73,8 +73,8 @@ export class UserRequirementComponent implements OnInit {
    
       const formData = this.nestedForm.value;
       const requirementArray: [] = formData.innerFields;
-      console.log(requirementArray);
       const payloadArray = this.mapToRequirementDto(requirementArray);
+      console.log(payloadArray);
     const response= await this.postRequirements.postRequirement(
         payloadArray
       );

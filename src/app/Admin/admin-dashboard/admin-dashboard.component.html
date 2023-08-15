@@ -7,13 +7,12 @@
   <div class="dashboard-container">
     <h1>Admin Dashboard</h1>
     <div class="button-group">
-      <button class="dashboard-button">Add New Item</button>
-      <button class="dashboard-button">Edit Item</button>
-      <button class="dashboard-button">Delete Item</button>
-      <button class="dashboard-button">Add New Site</button>
-      <button class="dashboard-button">Edit Site</button>
-      <button class="dashboard-button">Delete Site</button>
-      <button class="dashboard-button">Add New User's Credentials</button>
+      <button class="dashboard-button" (click)="handleAddNewItem()">Add New Item</button>
+      <button class="dashboard-button" (click)="handleEditItem()">Edit Item</button>
+      <button class="dashboard-button" (click)="handleAddNewSite()">Add New Site</button>
+      <button class="dashboard-button" (click)="handleEditSite()">Edit Site</button>
+      <button class="dashboard-button" (click)="handleAddNewUserCredentials()">Add New User's Credentials</button>
+      <button class="dashboard-button" (click)="handleEditUserCredentials()">Edit User's Credentials</button>
       <!-- <button class="dashboard-button">Suppliers</button> -->
       <!-- <button class="dashboard-button">Inquiry</button> -->
     </div>
