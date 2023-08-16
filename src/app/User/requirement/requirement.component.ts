@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { GetAllSitesAndItemsService } from '../../services/get-all-sites.service';
+import { GetInfoService } from '../../services/get-info.service';
 import { PostRequirementService } from '../../services/post-requirement.service';
 import { RequirementDto } from "../../models/requirement.dto";
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class RequirementComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private getAllSitesAndItemsService: GetAllSitesAndItemsService,
+    private getInfoService: GetInfoService,
     private postRequirements: PostRequirementService,
     private router: Router
   ) {}
@@ -23,11 +23,11 @@ export class RequirementComponent implements OnInit {
 
   async callFetchService() {
     let fetchedSiteOptions =
-      await this.getAllSitesAndItemsService.getAllSites();
+      await this.getInfoService.getAllSites();
     this.siteOptions = fetchedSiteOptions;
 
     let fetchedItemsOptions =
-      await this.getAllSitesAndItemsService.getAllItems();
+      await this.getInfoService.getAllItems();
     this.itemOptions = fetchedItemsOptions;
   }
 

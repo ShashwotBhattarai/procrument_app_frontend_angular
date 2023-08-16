@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PutItemService } from 'src/app/services/admin-put-item.service';
-import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.service';
+import { PutItemService } from 'src/app/services/put-item.service';
+import { GetInfoService } from 'src/app/services/get-info.service';
 
 @Component({
   selector: 'app-admin-edit-items',
@@ -11,7 +11,7 @@ import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.servi
 })
 export class EditItemComponent {
   constructor(
-    private getAllSitesAndItemsService: GetAllSitesAndItemsService,
+    private getInfoService: GetInfoService,
     private putItemService: PutItemService,
     private router: Router
   ) {}
@@ -19,7 +19,7 @@ export class EditItemComponent {
 
   async callFetchService() {
     let fetchedItemsOptions =
-      await this.getAllSitesAndItemsService.getAllItems();
+      await this.getInfoService.getAllItems();
     this.itemOptions = fetchedItemsOptions;
   }
 

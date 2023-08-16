@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DeleteItemService } from 'src/app/services/admin-delete-item.service';
-import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.service';
+import { DeleteItemService } from 'src/app/services/delete-item.service';
+import { GetInfoService } from 'src/app/services/get-info.service';
 
 @Component({
   selector: 'app-admin-delete-item',
@@ -12,7 +12,7 @@ import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.servi
 export class DeleteItemComponent {
 
   constructor(
-    private getAllSitesAndItemsService: GetAllSitesAndItemsService,
+    private getInfoService: GetInfoService,
     private deleteItemService: DeleteItemService,
     private router: Router
   ) {}
@@ -20,7 +20,7 @@ export class DeleteItemComponent {
 
   async callFetchService() {
     let fetchedItemsOptions =
-      await this.getAllSitesAndItemsService.getAllItems();
+      await this.getInfoService.getAllItems();
     this.itemOptions = fetchedItemsOptions;
   }
 

@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class PostCredentialService {
+export class PostUserService {
   constructor(private http: HttpClient) {}
 
   async postCredential(credential:any): Promise<boolean> {

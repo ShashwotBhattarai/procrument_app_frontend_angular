@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class GetAllSitesAndItemsService {
+export class GetInfoService {
   constructor(private http: HttpClient) {}
 
   async getAllSites(): Promise<any> {

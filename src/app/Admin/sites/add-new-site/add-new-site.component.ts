@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
-import { PostSiteService } from 'src/app/services/admin-addNewSite.service';
+import { PostSiteService } from 'src/app/services/post-site.service';
 
 @Component({
   selector: 'app-admin-site',

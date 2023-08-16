@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PutSiteService } from 'src/app/services/admin-put-site.service';
-import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.service';
+import { PutSiteService } from 'src/app/services/put-site.service';
+import { GetInfoService } from 'src/app/services/get-info.service';
 
 @Component({
   selector: 'app-admin-edit-site',
@@ -11,7 +11,7 @@ import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.servi
 })
 export class EditSiteComponent {
   constructor(
-    private getAllSitesAndItemsService: GetAllSitesAndItemsService,
+    private getInfoService: GetInfoService,
     private putSiteService: PutSiteService,
     private router: Router
   ) {}
@@ -19,7 +19,7 @@ export class EditSiteComponent {
 
   async callFetchService() {
     let fetchedSiteOptions =
-      await this.getAllSitesAndItemsService.getAllSites();
+      await this.getInfoService.getAllSites();
     this.siteOptions = fetchedSiteOptions;
     console.log(this.siteOptions);
   }
@@ -62,7 +62,6 @@ export class EditSiteComponent {
         this.router.navigate(['admin/dashboard']);
       }
     } else {
-      // Form is not valid, show error messages or take appropriate action
       console.log('Form is invalid');
     }
   }

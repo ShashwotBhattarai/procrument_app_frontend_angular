@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PostItemService } from 'src/app/services/admin_addNewItem.service';
+import { PostItemService } from 'src/app/services/post-item.service';
 
 
 @Component({

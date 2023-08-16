@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PostCredentialService } from 'src/app/services/admin-addnewCredential.service';
+import { PostUserService } from 'src/app/services/post-user.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { PostCredentialService } from 'src/app/services/admin-addnewCredential.s
   styleUrls: ['./add-new-user.component.css']
 })
 export class AddNewUserComponent {
-  constructor(private postCredentialService:PostCredentialService, private router:Router){}
+  constructor(private postUserService:PostUserService, private router:Router){}
 
   addCredentialForm= new FormGroup({
     fullname: new FormControl('', [Validators.required]),
@@ -25,7 +25,7 @@ export class AddNewUserComponent {
     if (this.addCredentialForm.valid) {
       const formData = this.addCredentialForm.value;
     console.log(formData);
-    const response= await this.postCredentialService.postCredential(formData
+    const response= await this.postUserService.postCredential(formData
     );
     if(response==true){
       this.router.navigate(['admin/dashboard']); 

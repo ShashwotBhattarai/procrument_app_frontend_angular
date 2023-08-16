@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { PutUserService } from 'src/app/services/admin-put-user.service';
-import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.service';
+import { PutUserService } from 'src/app/services/put-user.service';
+import { GetInfoService } from 'src/app/services/get-info.service';
 
 @Component({
   selector: 'app-admin-edit-credentials',
@@ -11,7 +11,7 @@ import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.servi
 })
 export class EditUserComponent {
   constructor(
-    private getAllSitesAndItemsService: GetAllSitesAndItemsService,
+    private getInfoService: GetInfoService,
     private putUserService: PutUserService,
     private router: Router
   ) {}
@@ -19,7 +19,7 @@ export class EditUserComponent {
 
   async callFetchService() {
     let fetchedItemsOptions =
-      await this.getAllSitesAndItemsService.getAllUsers();
+      await this.getInfoService.getAllUsers();
       
     this.userOptions = fetchedItemsOptions;
     console.log(this.userOptions);
@@ -64,7 +64,6 @@ export class EditUserComponent {
         this.router.navigate(['admin/dashboard']);
       }
     } else {
-      // Form is not valid, show error messages or take appropriate action
       console.log('Form is invalid');
     }
   }
