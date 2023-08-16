@@ -6,10 +6,10 @@ import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.servi
 
 @Component({
   selector: 'app-admin-edit-credentials',
-  templateUrl: './admin-edit-credentials.component.html',
-  styleUrls: ['./admin-edit-credentials.component.css']
+  templateUrl: './edit-user.component.html',
+  styleUrls: ['./edit-user.component.css']
 })
-export class AdminEditCredentialsComponent {
+export class EditUserComponent {
   constructor(
     private getAllSitesAndItemsService: GetAllSitesAndItemsService,
     private putUserService: PutUserService,
@@ -22,6 +22,7 @@ export class AdminEditCredentialsComponent {
       await this.getAllSitesAndItemsService.getAllUsers();
       
     this.userOptions = fetchedItemsOptions;
+    console.log(this.userOptions);
   }
 
   editUserForm = new FormGroup({
@@ -34,6 +35,17 @@ export class AdminEditCredentialsComponent {
 
   ngOnInit(): void {
     this.callFetchService();
+    this.editUserForm.get('user_id')?.valueChanges.subscribe(selectedUserId => {
+      const selectedUser = this.userOptions.find((user: { id: string }) => user.id === selectedUserId);
+      if (selectedUser) {
+        this.editUserForm.patchValue({
+          fullname: selectedUser.fullname,
+          username: selectedUser.username,
+          password: selectedUser.password,
+          role: selectedUser.role,
+        });
+      }
+    });
   }
 
   async onSubmit() {

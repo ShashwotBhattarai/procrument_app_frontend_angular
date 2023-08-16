@@ -51,7 +51,6 @@ export class GetAllSitesAndItemsService {
   }
   async getAllUsers(): Promise<any> {
     let response: any;
-    let userOptions: any;
 
     try {
       const url = 'http://localhost:3000/credentials';

@@ -6,10 +6,10 @@ import { PostSiteService } from 'src/app/services/admin-addNewSite.service';
 
 @Component({
   selector: 'app-admin-site',
-  templateUrl: './admin-site.component.html',
-  styleUrls: ['./admin-site.component.css']
+  templateUrl: './add-new-site.component.html',
+  styleUrls: ['./add-new-site.component.css']
 })
-export class AdminSiteComponent {
+export class AddNewSiteComponent {
   constructor(private postSiteService:PostSiteService, private router:Router){}
 
   addSiteForm= new FormGroup({

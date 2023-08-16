@@ -2,15 +2,15 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GetAllSitesAndItemsService } from '../../services/get-all-sites.service';
 import { PostRequirementService } from '../../services/post-requirement.service';
-import { RequirementDto } from "../../dto's/requirement.dto";
+import { RequirementDto } from "../../models/requirement.dto";
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-requirement',
-  templateUrl: './user-requirement.component.html',
-  styleUrls: ['./user-requirement.component.css'],
+  templateUrl: './requirement.component.html',
+  styleUrls: ['./requirement.component.css'],
 })
-export class UserRequirementComponent implements OnInit {
+export class RequirementComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private getAllSitesAndItemsService: GetAllSitesAndItemsService,

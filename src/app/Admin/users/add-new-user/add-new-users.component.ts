@@ -6,10 +6,10 @@ import { PostCredentialService } from 'src/app/services/admin-addnewCredential.s
 
 @Component({
   selector: 'app-admin-credentials',
-  templateUrl: './admin-credentials.component.html',
-  styleUrls: ['./admin-credentials.component.css']
+  templateUrl: './add-new-user.component.html',
+  styleUrls: ['./add-new-user.component.css']
 })
-export class AdminCredentialsComponent {
+export class AddNewUserComponent {
   constructor(private postCredentialService:PostCredentialService, private router:Router){}
 
   addCredentialForm= new FormGroup({
@@ -32,7 +32,7 @@ export class AdminCredentialsComponent {
     }
 
     } else {
-      // Form is not valid, show error messages or take appropriate action
+      
       console.log('Form is invalid');
     }
     

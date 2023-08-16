@@ -6,10 +6,10 @@ import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.servi
 
 @Component({
   selector: 'app-admin-delete-item',
-  templateUrl: './admin-delete-item.component.html',
-  styleUrls: ['./admin-delete-item.component.css']
+  templateUrl: './delete-item.component.html',
+  styleUrls: ['./delete-item.component.css']
 })
-export class AdminDeleteItemComponent {
+export class DeleteItemComponent {
 
   constructor(
     private getAllSitesAndItemsService: GetAllSitesAndItemsService,

@@ -6,11 +6,11 @@ import { PostItemService } from 'src/app/services/admin_addNewItem.service';
 
 @Component({
   selector: 'app-admin-items',
-  templateUrl: './admin-items.component.html',
-  styleUrls: ['./admin-items.component.css'],
+  templateUrl: './add-new-item.component.html',
+  styleUrls: ['./add-new-item.component.css'],
 
 })
-export class AdminItemsComponent {
+export class AddNewItemComponent {
  
 
   constructor(private postItemService:PostItemService, private router:Router){}

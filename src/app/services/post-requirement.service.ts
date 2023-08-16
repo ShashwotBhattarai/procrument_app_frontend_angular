@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { RequirementDto } from '../dto\'s/requirement.dto';
+import { RequirementDto } from '../models/requirement.dto';
 
 @Injectable({
   providedIn: 'root',

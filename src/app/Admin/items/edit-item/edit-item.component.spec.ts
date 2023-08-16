@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminSiteComponent } from './admin-site.component';
+import { EditItemComponent } from './edit-item.component';
 
-describe('AdminSiteComponent', () => {
-  let component: AdminSiteComponent;
-  let fixture: ComponentFixture<AdminSiteComponent>;
+describe('EditItemComponent', () => {
+  let component: EditItemComponent;
+  let fixture: ComponentFixture<EditItemComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AdminSiteComponent]
+      declarations: [EditItemComponent]
     });
-    fixture = TestBed.createComponent(AdminSiteComponent);
+    fixture = TestBed.createComponent(EditItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

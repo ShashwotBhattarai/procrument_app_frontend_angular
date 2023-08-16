@@ -2,30 +2,30 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 
-import { UserRequirementComponent } from './User/user-requirement/user-requirement.component';
-import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
-import { UserDashboardComponent } from './User/user-dashboard/user-dashboard.component';
-import { AdminItemsComponent } from './Admin/admin-items/admin-addItems.component';
-import { AdminSiteComponent } from './Admin/admin-site/admin-site.component';
-import { AdminCredentialsComponent } from './Admin/admin-credentials/admin-credentials.component';
-import { AdminEditItemsComponent } from './Admin/admin-edit-items/admin-edit-items.component';
-import { AdminDeleteItemComponent } from './Admin/admin-delete-item/admin-delete-item.component';
-import { AdminEditSiteComponent } from './Admin/admin-edit-site/admin-edit-site.component';
-import { AdminEditCredentialsComponent } from './Admin/admin-edit-credentials/admin-edit-credentials.component';
+import { RequirementComponent } from './User/requirement/requirement.component';
+import { AdminDashboardComponent } from './Admin/dashboard/admin-dashboard.component';
+import { UserDashboardComponent } from './User/dashboard/user-dashboard.component';
+import { AddNewItemComponent } from './Admin/items/add-new-item/add-new-items.component';
+import { AddNewSiteComponent } from './Admin/sites/add-new-site/add-new-site.component';
+import { AddNewUserComponent } from './Admin/users/add-new-user/add-new-users.component';
+import { EditItemComponent } from './Admin/items/edit-item/edit-item.component';
+import { DeleteItemComponent } from './Admin/items/delete-item/delete-item.component';
+import { EditSiteComponent } from './Admin/sites/edit-site/edit-site.component';
+import { EditUserComponent } from './Admin/users/edit-user/edit-user.component';
 
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'admin/dashboard', component: AdminDashboardComponent },
   { path: 'user/dashboard', component: UserDashboardComponent},
-  { path: 'user/requirement', component: UserRequirementComponent},
-  { path: 'admin/items', component: AdminItemsComponent},
-  { path: 'admin/site', component: AdminSiteComponent},
-  { path: 'admin/credentials', component: AdminCredentialsComponent},
-  { path: 'admin/editItems', component: AdminEditItemsComponent},
-  { path: 'admin/deleteItems', component: AdminDeleteItemComponent},
-  { path: 'admin/editSite', component: AdminEditSiteComponent},
-  { path: 'admin/editUser', component: AdminEditCredentialsComponent},
+  { path: 'user/requirement', component: RequirementComponent},
+  { path: 'admin/items', component: AddNewItemComponent},
+  { path: 'admin/site', component: AddNewSiteComponent},
+  { path: 'admin/credentials', component: AddNewUserComponent},
+  { path: 'admin/editItems', component: EditItemComponent},
+  { path: 'admin/deleteItems', component: DeleteItemComponent},
+  { path: 'admin/editSite', component: EditSiteComponent},
+  { path: 'admin/editUser', component: EditUserComponent},
 
 
 ];

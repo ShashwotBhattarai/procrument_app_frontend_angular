@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserRequirementComponent } from './user-requirement.component';
+import { RequirementComponent } from './requirement.component';
 
 describe('UserRequirementComponent', () => {
-  let component: UserRequirementComponent;
-  let fixture: ComponentFixture<UserRequirementComponent>;
+  let component: RequirementComponent;
+  let fixture: ComponentFixture<RequirementComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UserRequirementComponent]
+      declarations: [RequirementComponent]
     });
-    fixture = TestBed.createComponent(UserRequirementComponent);
+    fixture = TestBed.createComponent(RequirementComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

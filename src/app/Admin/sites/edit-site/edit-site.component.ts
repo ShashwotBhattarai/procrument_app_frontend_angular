@@ -6,10 +6,10 @@ import { GetAllSitesAndItemsService } from 'src/app/services/get-all-sites.servi
 
 @Component({
   selector: 'app-admin-edit-site',
-  templateUrl: './admin-edit-site.component.html',
-  styleUrls: ['./admin-edit-site.component.css']
+  templateUrl: './edit-site.component.html',
+  styleUrls: ['./edit-site.component.css']
 })
-export class AdminEditSiteComponent {
+export class EditSiteComponent {
   constructor(
     private getAllSitesAndItemsService: GetAllSitesAndItemsService,
     private putSiteService: PutSiteService,
