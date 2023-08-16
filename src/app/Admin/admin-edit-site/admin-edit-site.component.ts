@@ -21,6 +21,7 @@ export class AdminEditSiteComponent {
     let fetchedSiteOptions =
       await this.getAllSitesAndItemsService.getAllSites();
     this.siteOptions = fetchedSiteOptions;
+    console.log(this.siteOptions);
   }
 
   editSiteForm = new FormGroup({
@@ -30,8 +31,20 @@ export class AdminEditSiteComponent {
     site_manager_name: new FormControl('', [Validators.required]),
   });
 
+  
+
   ngOnInit(): void {
     this.callFetchService();
+    this.editSiteForm.get('site_id')?.valueChanges.subscribe(selectedSiteId => {
+      const selectedSite = this.siteOptions.find((site: { id: string }) => site.id === selectedSiteId);
+      if (selectedSite) {
+        this.editSiteForm.patchValue({
+          site_name: selectedSite.name,
+          site_location: selectedSite.location,
+          site_manager_name: selectedSite.managerName,
+        });
+      }
+    });
   }
 
   async onSubmit() {

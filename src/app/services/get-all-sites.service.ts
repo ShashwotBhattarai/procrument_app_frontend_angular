@@ -15,9 +15,11 @@ export class GetAllSitesAndItemsService {
     try {
       const url = 'http://localhost:3000/site';
       response = await this.http.get(url).toPromise();
-      siteOptions = response.map((site: { id: any; site_name: any }) => ({
+      siteOptions = response.map((site: { id: any; site_name: any; site_location:any; site_manager_name:any }) => ({
         id: site.id,
         name: site.site_name,
+        location: site.site_location,
+        managerName: site.site_manager_name
       }));
     } catch (error) {
       console.error(error);

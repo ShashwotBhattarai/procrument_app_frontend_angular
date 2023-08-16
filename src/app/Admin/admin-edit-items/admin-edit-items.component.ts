@@ -33,6 +33,17 @@ export class AdminEditItemsComponent {
 
   ngOnInit(): void {
     this.callFetchService();
+    this.editItemsForm.get('item_id')?.valueChanges.subscribe(selectedItemId => {
+      const selectedItem = this.itemOptions.find((item: { id: string }) => item.id === selectedItemId);
+      if (selectedItem) {
+        this.editItemsForm.patchValue({
+          item_name: selectedItem.name,
+          item_specification: selectedItem.spec,
+          item_make: selectedItem.make,
+          item_unit: selectedItem.unit
+        });
+      }
+    });
   }
 
   async onSubmit() {
