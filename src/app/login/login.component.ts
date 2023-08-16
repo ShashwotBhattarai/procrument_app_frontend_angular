@@ -19,7 +19,6 @@ export class LoginComponent {
  
    async userLogin(){
     let response_info:any= await this.loginService.login(this.loginForm.value.username,this.loginForm.value.password); 
-    console.log("i am inside userlogin"+response_info.status);
     if (response_info.status==true&&response_info.role=='admin'){
       this.router.navigate(['admin/dashboard']);
     }

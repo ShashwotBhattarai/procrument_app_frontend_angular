@@ -26,10 +26,7 @@ export class LoginAuthenticationService {
 
     try {
       const response: any = await this.http.get(url, httpOptions).toPromise();
-      console.log(response);
-      console.log(response.access_token);
       if (response.access_token) {
-        console.log('iam inside here');
         response_info.status = true;
         response_info.access_token = response.access_token;
         response_info.fullName = response.fullName;
