@@ -5,8 +5,6 @@ import { PostRequirementService } from '../../services/post-requirement.service'
 import { RequirementDto } from "../../dto's/requirement.dto";
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-user-requirement',
   templateUrl: './user-requirement.component.html',
@@ -17,8 +15,7 @@ export class UserRequirementComponent implements OnInit {
     private formBuilder: FormBuilder,
     private getAllSitesAndItemsService: GetAllSitesAndItemsService,
     private postRequirements: PostRequirementService,
-    private router:Router
-    
+    private router: Router
   ) {}
   nestedForm!: FormGroup;
   siteOptions: any;
@@ -69,19 +66,15 @@ export class UserRequirementComponent implements OnInit {
     this.nestedForm.updateValueAndValidity();
   }
 
- async onSubmit(){
-   
-      const formData = this.nestedForm.value;
-      const requirementArray: [] = formData.innerFields;
-      const payloadArray = this.mapToRequirementDto(requirementArray);
-      console.log(payloadArray);
-    const response= await this.postRequirements.postRequirement(
-        payloadArray
-      );
-      if(response==true){
-        this.router.navigate(['user/dashboard']); 
-      }
-     
+  async onSubmit() {
+    const formData = this.nestedForm.value;
+    const requirementArray: [] = formData.innerFields;
+    const payloadArray = this.mapToRequirementDto(requirementArray);
+    console.log(payloadArray);
+    const response = await this.postRequirements.postRequirement(payloadArray);
+    if (response == true) {
+      this.router.navigate(['user/dashboard']);
+    }
   }
 
   mapToRequirementDto(inputArray: any[]): RequirementDto[] {
@@ -91,5 +84,17 @@ export class UserRequirementComponent implements OnInit {
       requirement_quantity: parseInt(item.innerField3, 10),
       requirement_delivery_date: item.innerField4,
     }));
+  }
+
+  displaySiteFn(value?: number) {
+    return value
+      ? this.siteOptions.find((_: { id: number }) => _.id === value).name
+      : undefined;
+  }
+
+  displayItemFn(value?: number) {
+    return value
+      ? this.itemOptions.find((_: { id: number }) => _.id === value).name
+      : undefined;
   }
 }

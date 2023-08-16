@@ -11,7 +11,7 @@
         <div formArrayName="innerFields">
           <div *ngFor="let innerField of innerFields.controls; let i = index">
             <div class="inner-field-row" [formGroupName]="i">
-              <div class="index">{{(i+1)+"."}}</div>
+              <div class="index">{{ i + 1 + "." }}</div>
               <mat-form-field>
                 <input
                   matInput
@@ -20,12 +20,15 @@
                   placeholder="Site ID"
                   [matAutocomplete]="autoSite"
                 />
-                <mat-autocomplete #autoSite="matAutocomplete">
+                <mat-autocomplete
+                  #autoSite="matAutocomplete"
+                  [displayWith]="displaySiteFn.bind(this)"
+                >
                   <mat-option
                     *ngFor="let site of siteOptions"
                     [value]="site.id"
                   >
-                    {{ site.name}}
+                    {{ site.name }}
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
@@ -38,24 +41,30 @@
                   placeholder="Item ID"
                   [matAutocomplete]="autoItem"
                 />
-                <mat-autocomplete #autoItem="matAutocomplete">
+                <mat-autocomplete
+                  #autoItem="matAutocomplete"
+                  [displayWith]="displayItemFn.bind(this)"
+                >
                   <mat-option
                     *ngFor="let item of itemOptions"
                     [value]="item.id"
                   >
                     {{ item.name }}
-                    {{item.spec}}
-                    {{item.make}}
-                    {{"Unit:"+item.unit}}
+                    {{ item.spec }}
+                    {{ item.make }}
+                    {{ "Unit:" + item.unit }}
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
 
-             
-              <mat-form-field >
-                <input matInput #number formControlName="innerField3" placeholder="30 nos" />
+              <mat-form-field>
+                <input
+                  matInput
+                  #number
+                  formControlName="innerField3"
+                  placeholder="30 nos"
+                />
               </mat-form-field>
-          
 
               <mat-form-field>
                 <mat-label>Choose a date</mat-label>
@@ -72,7 +81,12 @@
                 <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
 
-              <button mat-raised-button color="warn" type="button" (click)="removeNestedFormGroup(i)">
+              <button
+                mat-raised-button
+                color="warn"
+                type="button"
+                (click)="removeNestedFormGroup(i)"
+              >
                 Remove
               </button>
             </div>
